@@ -1,0 +1,44 @@
+https://www.howtoforge.com/tutorial/how-to-create-your-own-linux-distribution-with-yocto-on-ubuntu/ 
+
+STEPS:
+
+git clone -b dunfell https://git.yoctoproject.org/git/poky ==> dunfell is the LTS. Hence, we take that
+
+cd poky
+
+source oe-init-buildenv
+
+vi conf/local.conf ==> a basic template local.conf is created once you do the source as above. Only a limited set of architectures are supported. To add for you own SOC, then a separate BSP layer like "meta-adit-rcar3" of that SOC needs to be included (All this is done by mentor guys for us). Many config options are there in the mentor provided local.conf. But, in the template version, very basic configurations are there.
+
+Do all necessary configurations ==> stuff like machine architecture, build output etc. 
+
+cd..
+
+source oe-init-buildenv
+
+bitbake core-image-minimal
+
+Go to build dir and give "runqemu qemux86-64". 
+
+
+
+
+
+COS10:
+
+Yocto version has been changed from 2.2 to 2.5 for movement from Mentor COS2.5 to COS10 drop.
+
+Check <WB>/git-repos/supplier/mgc/drop/COS10-drop/
+
+Check the "Release Notes" section in https://wiki.yoctoproject.org/wiki/Releases so as to know what new changes have been added in every yocto release.
+
+Stuffs being changed in newer Yocto versions:
+
+Linux kernel will be upgraded
+
+GCC will be upgraded
+
+Maybe some opensource packages (like OpenSSL) will be upgraded
+
+Some internal oe-core stuff will be changed.
+
