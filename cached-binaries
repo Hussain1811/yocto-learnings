@@ -1,0 +1,4 @@
+For speeding up the build process.
+
+There is a cached-binaries folder in your build directory.
+
