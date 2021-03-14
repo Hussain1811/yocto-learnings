@@ -1,0 +1,6 @@
+Below happens when you give tools/build.sh
+
+do_fetch() ==> fetches all stuff
+Then bitbake will parallely execute tasks (based on the number of threads) such as do_configure(), do_patch(), do_compile(), do_install(), do_package_write_ipk() etc and you will see the IPK's in tmp/deploy directory.
+do_rootfs() ---> one of the task which will take all the above generated IPK'S, installs them and finally generates an IVI image.
+
