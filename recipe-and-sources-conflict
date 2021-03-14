@@ -1,0 +1,12 @@
+Don't pull latest master in meta-adit repo and then create devel branch as we don't know what changes have been done.
+
+While giving in DBS, you need not rebase to latest master and initiate. If, there is an error, then rebase
+
+Mismatch between sources and bitbake:
+
+Clone meta-adit to tmp folder
+Git checkout  adit_v1.0-cos_master
+Do meld of adit-sdc in ur i38 meta-adit with the tmp meta-adit and incorporate those changes to i38 meta-adit
+Rebase ur devel branch on top of latest adit_master
+Then give bitbake.
+
