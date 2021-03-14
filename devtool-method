@@ -1,0 +1,24 @@
+DEVTOOL METHOD:
+
+1)bitbake -c cleanall openssl
+2)bitbake openssl
+3)devtool modify openssl ===> It adds a "workspace" layer in build/conf/bblayers.conf
+4)Make changes to the code
+5)bitbake openssl ===> will compile from the above workspace/sources/openssl directory
+6)devtool reset openssl ===> it will leave the above sources directory
+
+https://wiki.yoctoproject.org/wiki/TipsAndTricks/Patching_the_source_for_a_recipe 
+
+
+
+
+SRC_URI METHOD:
+
+1)Create a patch file of your change by going to workspace/sources/openssl directory and then giving git diff > <path for .patch>
+
+2)Add it to files directory
+
+3)FILESEXTRAPATHS_prepend := "${THISDIR}/files:" ===> add this to your .bbappend
+
+4)Add path of the patch to SRC_URI variable in your .bb recipe
+
