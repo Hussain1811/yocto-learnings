@@ -1,0 +1,40 @@
+A mainstream distro such Debian can give you an instant, ready-to run system, great if you are using off-the-shelf hardware such as Raspberry Pi, or one of the Beagle Boards. Yocto Project, on the other hand, is the build tool you need to create a fully custom distro from scratch (you see, Yocto Project is not a distro, it *creates* distros) 
+
+Debian has traditionally been thought of by many as a desktop operating system but over the past few years significant effort has gone into enabling Debian to run on embedded targets.
+We can create an embedded system derived from Debian packages in a few lines of YAML markup using an open-source tool called Debos: Debian OS builder.
+
+Buildroot => for small RFS, for lesser number of architecture. It is basically a set of makefiles that download, configure and compile the software with the correct options.
+Uses Kconfig where all the configurations are there.
+
+Yocto ==> for a large or full-fletched RFS, for larger variations of architectures. Here configurations are in a bitbake recipe file.
+to create ur own custom linux distribution for the target. Uses "open Embedded" build system. It basically provides an embedded linux distribution. Not applicable for android.
+
+Buildroot vs Yocto: https://www.youtube.com/watch?v=wCVYQWFIvBs&feature=youtu.be 
+Both will create bootloader, kernel, rootfs, toolchain images for you.
+
+The Buildroot project is defined as "a simple, efficient, and easy-to-use tool to generate embedded Linux systems through cross-compilation." It shares many of the same objectives as the Yocto project, however it is focused on simplicity and minimalism.
+
+
+Open Embedded is the build system used by yocto. It has some metadata which describes the recipes.
+Poky is the distribution of OpenEmbedded. There are many other distributions such as Angstrom. But, yocto uses Poky.
+Bitbake is the python based build tool. It basically reads the metadata.
+
+Metadata are:
+
+Classes(.bbclass) => inheritance mechanism for common functionality. If many recipes want to use a common  
+                                    functionality, then that recipe can just inherit that particular .bbclass file.
+Configuration (.conf) => drives the overall behaviour 
+Recipes(.bb) => build instructions to build a package.
+Append files(.bbappend) => has extra metadata where previosly set values can be overrridden.
+Package groups => used to group packages for an RFS image. Ex: all QT related packages can be built in a single go        
+                                   instead of giving the bitbake for them separately.
+
+Layers:
+
+All the above metadata are grouped/organised into separate layers.
+oe…/build/conf/bblayers.conf => explicitly lists the available layers
+
+User level configurations that can be specified for the build system:
+oe…/build/conf/local.conf
+
+
