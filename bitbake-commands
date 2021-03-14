@@ -1,0 +1,21 @@
+bitbake <recipe_name> ===> for building
+
+bitbake -c clean/cleanall/cleansstate <recipe_name> ==> for cleaning a recipe
+
+bitbake -e <recipe_name> ===> environment details
+
+bitbake -s ==> show current and preferred version of recipes
+
+bitbake -k ==> continue as much as possible
+
+bitbake -v -D ==> verbose and debug
+
+bitbake --no-setscene <recipe_name> ==> to build from scratch (i.e. not using cache)
+
+bitbake -g <recipe_name> ==> dependency details
+
+bitbake -g -u depexp <recipe_name> ==> UI based dependency graph
+
+bitbake-layers show-layers
+
+bitbake-layers show-recipes
