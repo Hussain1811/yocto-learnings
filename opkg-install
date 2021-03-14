@@ -1,0 +1,6 @@
+If "opkg install" doesn't work, then do the below as they perform the steps as "opkg install"
+
+1)Go to oe-…/build/tmp/work/rcar_gen3-mel-linux/optee-client/3.1.0-adit-git-3.2.0/image
+2)Give a tree command here
+3)Copy the contents individually to coresponding directory in the NFS path i.e. /export/target/rcar3/i21/RFS1/
+
